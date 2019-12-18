@@ -7,7 +7,7 @@ public class FireMonster extends Monster{
 	}
 
 @Override
-public String takeHit(Monster monster){
+public String takeHit(){
 
 	return "";
 }

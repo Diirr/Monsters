@@ -6,7 +6,7 @@ public class GrassMonster extends Monster{
 	}
 
          @Override
-	 public String takeHit(Monster monster){
+	 public String takeHit(){
 	    return "";
 	 }
 
