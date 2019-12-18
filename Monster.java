@@ -60,91 +60,93 @@ public abstract class Monster{
 		return this.type;
 	}
 
-public abstract String takeHit(Monster monster);
+public abstract String takeHit();
 
 
-/*public String takeHit(Monster monster1, Monster monster2){
+public String takeHit(Monster monster1, Monster monster2)throws Exception{
 
-	String ty=monster.getType();
+	String ty=monster1.getType();
 	String ty2=monster2.getType();
         int monsterLife=0;
         int opponentLife=0;
         int currentMonsterDamage=0;
         int opponentMonsterDamage=0;
 
-
-
-	if(ty2.equals("fire"){   //Für Firemonster
-	
+	if(ty2.equals("fire")){   //Für Firemonster
 	
 		if(ty.equals("water")){
 
-                opponentMonsterDamage=(monster.getDamage())*2;
-                currentMonsterDamage=(this.getDamage())/2;
-                monsterLife = this.getLife()-opponentMonsterDamage;
-                opponentLife = monster.getLife()-currentMonsterDamage;
+                opponentMonsterDamage=(monster1.getDamage())*2;
+                currentMonsterDamage=(monster2.getDamage())/2;
+                monsterLife = monster2.getLife()-opponentMonsterDamage;
+                opponentLife = monster1.getLife()-currentMonsterDamage;
 
         }
-        else if(ty.equals("grass")){
+        	else if(ty.equals("grass")){
 
-                opponentMonsterDamage=(monster.getDamage())/2;
-                currentMonsterDamage=(this.getDamage())*2;
-                monsterLife = this.getLife()-opponentMonsterDamage;
-                opponentLife = monster.getLife()-currentMonsterDamage;
+                opponentMonsterDamage=(monster1.getDamage())/2;
+                currentMonsterDamage=(monster2.getDamage())*2;
+                monsterLife = monster2.getLife()-opponentMonsterDamage;
+                opponentLife = monster1.getLife()-currentMonsterDamage;
         }
 	}
 
-	if(ty2.equals("grass"){  //Für Grassmonster
+	if(ty2.equals("grass")){  //Für Grassmonster
 	
 		if(ty.equals("fire")){
 
-                opponentMonsterDamage=(monster.getDamage())*2;
-                currentMonsterDamage=(this.getDamage())/2;
-                monsterLife = this.getLife()-opponentMonsterDamage;
-                opponentLife = monster.getLife()-currentMonsterDamage;
+                opponentMonsterDamage=(monster1.getDamage())*2;
+                currentMonsterDamage=(monster2.getDamage())/2;
+                monsterLife = monster2.getLife()-opponentMonsterDamage;
+                opponentLife = monster1.getLife()-currentMonsterDamage;
 
         }
-        else if(ty.equals("water")){
+        	else if(ty.equals("water")){
 
-                opponentMonsterDamage=(monster.getDamage())/2;
-                currentMonsterDamage=(this.getDamage())*2;
-                monsterLife = this.getLife()-opponentMonsterDamage;
-                opponentLife = monster.getLife()-currentMonsterDamage;
-        }
-
-	
+                opponentMonsterDamage=(monster1.getDamage())/2;
+                currentMonsterDamage=(monster2.getDamage())*2;
+                monsterLife = monster2.getLife()-opponentMonsterDamage;
+                opponentLife = monster1.getLife()-currentMonsterDamage;
+        }	
 	}
 
+	if(ty2.equals("water")){	//Für Watermonster
 
-	if(ty2.equals("water"){  //Für Watermonster
-	
-	
-	if(ty.equals("grass")){
+		if(ty.equals("grass")){
 
-                opponentMonsterDamage=(monster.getDamage())*2;
-                currentMonsterDamage=(this.getDamage())/2;
-                monsterLife = this.getLife()-opponentMonsterDamage;
-                opponentLife = monster.getLife()-currentMonsterDamage;
-
+                opponentMonsterDamage=(monster1.getDamage())*2;
+                currentMonsterDamage=(monster2.getDamage())/2;
+                monsterLife = monster2.getLife()-opponentMonsterDamage;
+                opponentLife = monster1.getLife()-currentMonsterDamage;
         }
-        else if(ty.equals("fire")){
+        	else if(ty.equals("fire")){
 
-                opponentMonsterDamage=(monster.getDamage())/2;
-                currentMonsterDamage=(this.getDamage())*2;
-                monsterLife = this.getLife()-opponentMonsterDamage;
-                opponentLife = monster.getLife()-currentMonsterDamage;
+                opponentMonsterDamage=(monster1.getDamage())/2;
+                currentMonsterDamage=(monster2.getDamage())*2;
+                monsterLife = monster2.getLife()-opponentMonsterDamage;
+                opponentLife = monster1.getLife()-currentMonsterDamage;
         }
-	
 	}
 
-	this.setLife(monsterLife);
-        monster.setLife(opponentLife);
+	monster2.setLife(monsterLife);
+        monster1.setLife(opponentLife);
 
+		//Jetzt werden die Ausgaben generiert. 				
 
+	if(monsterLife>0 && opponentLife >0){
+		Thread.sleep(3000);
+        return  "++++++++++++++++++++der Kampf beginnt++++++++++++++++++++\n"+monster1.getName()+" attacks "+monster2.getName()+" and causes "+opponentMonsterDamage+" damage.\n"+monster2.getName()+ " has "+monsterLife+" lifepoints left.\nNow it's "+monster2.getName()+ " turn. It attacks "+monster1.getName()+" and causes "+currentMonsterDamage+" damage.\n"+monster1.getName()+ " has "+opponentLife+" lifepoints left.\n";
+        }
 
+        if(monsterLife<=0){
+		Thread.sleep(3000);
+        return "++++++++++++++++++++der Kampf beginnt++++++++++++++++++++\n" +monster1.getName()+" attacks "+monster2.getName()+" and causes "+opponentMonsterDamage+" damage.\n"+monster2.getName()+" has no lifepoints left and is KO.\nThe winner is "+monster1.getName()+" and has "+monster1.getLife()+" lifepoints left.\n";
+        }
+        else{
+		Thread.sleep(3000);
+        return "++++++++++++++++++++der Kampf beginnt++++++++++++++++++++\n" +monster2.getName()+" attacks "+monster1.getName()+" and causes "+currentMonsterDamage+" damage.\n"+monster1.getName()+" has no lifepoints left and is KO.\nThe winner is "+monster2.getName()+" and has "+monster2.getLife()+" lifepoints left.\n";
 
-
-}*/
+        }
 }
-
+}
 

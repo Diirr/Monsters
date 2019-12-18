@@ -10,6 +10,7 @@ public class Arena{
 		Monster hellfire = new FireMonster("Hellfire", 120, 550,"");
 		Monster mowingmachine = new GrassMonster("MowingMachine",80, 600,"");
 		Monster neptune = new WaterMonster ("Neptune", 100, 555,"");
+		Monster monster = new WaterMonster("", 50, 50, "");
 
 		monsters.add(hellfire);
 		monsters.add(mowingmachine);
@@ -31,15 +32,15 @@ public class Arena{
 		while(hellfire.getName().equals (monsters.get(0).getName())){
 			Collections.shuffle(monsters);
 		}
-	
 	}
 	if(i==1 && !hellfire.getName().equals (monsters.get(0).getName())){	
-        	while(hellfire.getLife()>0 && monsters.get(0).getLife()>0){ 
-			System.out.println(hellfire.takeHit(monsters.get(0)));
+        	while(hellfire.getLife()>0 && monsters.get(0).getLife()>0){
+		       try{	
+			System.out.println(monster.takeHit(hellfire,monsters.get(0)));
+		       } catch(Exception e){
+		       }
 	}
 		}	
-
-
 
 	 if(i==2 && mowingmachine.getName().equals (monsters.get(0).getName())){
                 while(mowingmachine.getName().equals (monsters.get(0).getName())){
@@ -48,11 +49,12 @@ public class Arena{
 	}
 	if(i==2 && !mowingmachine.getName().equals (monsters.get(0).getName())){ 
         	while(mowingmachine.getLife()>0 && monsters.get(0).getLife()>0){
-        		System.out.println(mowingmachine.takeHit(monsters.get(0)));
+			try{
+        		System.out.println(monster.takeHit(mowingmachine,monsters.get(0)));
+			}catch(Exception e){
+			}
         }
 		 }
-
-
 
 	 if(i==3 && neptune.getName().equals (monsters.get(0).getName())){
                 while(neptune.getName().equals (monsters.get(0).getName())){
@@ -62,7 +64,10 @@ public class Arena{
 
         if(i==3 && !neptune.getName().equals (monsters.get(0).getName())){
         	while(neptune.getLife()>0 && monsters.get(0).getLife()>0){
-        		System.out.println(neptune.takeHit(monsters.get(0)));
+			try{
+        		System.out.println(monster.takeHit(neptune,monsters.get(0)));
+			}catch(Exception e){
+			}
         	}
 	}
 }
